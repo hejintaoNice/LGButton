@@ -107,7 +107,7 @@ open class LGButton: UIControl {
         }
     }
     
-    @IBInspectable public var cornerRadius: CGFloat = 0.0 {
+    @IBInspectable public var buttonCornerRadius: CGFloat = 0.0 {
         didSet{
             setupView()
         }
@@ -125,7 +125,7 @@ open class LGButton: UIControl {
         }
     }
     
-    @IBInspectable public var borderWidth: CGFloat = 0.0 {
+    @IBInspectable public var buttonBorderWidth: CGFloat = 0.0 {
         didSet{
             setupView()
         }
@@ -445,8 +445,8 @@ open class LGButton: UIControl {
     }
     
     fileprivate func setupBackgroundColor() {
-        bgContentWidthConstraint.constant = min(0, -borderWidth)
-        bgContentHeightConstraint.constant = min(0, -borderWidth)
+        bgContentWidthConstraint.constant = min(0, -buttonBorderWidth)
+        bgContentHeightConstraint.constant = min(0, -buttonBorderWidth)
         bgContentView.backgroundColor = bgColor
     }
     
@@ -482,11 +482,11 @@ open class LGButton: UIControl {
             bgContentView.layer.cornerRadius = frame.size.height/2
             layer.cornerRadius = frame.size.height/2
         }else{
-            bgContentView.layer.cornerRadius = cornerRadius
-            layer.cornerRadius = cornerRadius
+            bgContentView.layer.cornerRadius = buttonCornerRadius
+            layer.cornerRadius = buttonCornerRadius
         }
         self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderWidth
+        self.layer.borderWidth = buttonBorderWidth
     }
     
     fileprivate func setupTitle() {
@@ -718,3 +718,4 @@ open class LGButton: UIControl {
         }
     }
 }
+
