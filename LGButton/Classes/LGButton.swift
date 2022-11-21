@@ -143,6 +143,12 @@ open class LGButton: UIControl {
         }
     }
     
+    @IBInspectable public var buttonlineBreakMode: NSLineBreakMode = .byTruncatingTail {
+        didSet{
+            setupView()
+        }
+    }
+    
     @IBInspectable public var titleFontName: String? {
         didSet{
             setupView()
@@ -428,6 +434,11 @@ open class LGButton: UIControl {
         setupShadow()
         setupLoadingView()
         setupAlignment()
+        configLineBreakMode()
+    }
+    
+    fileprivate func configLineBreakMode() {
+        self.titleLbl.lineBreakMode = self.buttonlineBreakMode
     }
     
     fileprivate func registIconFont() {
